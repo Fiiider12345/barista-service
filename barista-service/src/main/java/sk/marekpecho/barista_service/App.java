@@ -29,7 +29,10 @@ public class App
 
 	public static void main(String[] args) {
 
+		System.out.println("Initialization...");
+		
 		while (true) {
+			// Get order, init
 			order=null;
 			getFirstOrder();
 			System.out.println(order);
@@ -47,9 +50,15 @@ public class App
 			System.out.println(order);
 
 			// Picked up
+			order.setState(State.PICKED_UP);
+			updateOrder(orderAsString);
+			sleep();
+			System.out.println(order);
+			
+			// Delete order
 			deleteOrder();
 			sleep();
-			System.out.println("Picked up");
+			System.out.println("Order deleted");
 		}
 	}
 
